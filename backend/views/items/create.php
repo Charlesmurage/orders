@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Items */
+/* @var $model backend\models\Items */
 
 $this->title = 'Create Items';
 $this->params['breadcrumbs'][] = ['label' => 'Items', 'url' => ['index']];
