@@ -35,7 +35,28 @@ $this->params['breadcrumbs'][] = $this->title;
             'quantity',
         ],
     ]) ?>
-
+<div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Qty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach($model->orderItems as $orderItem):
+                ?>
+                    <tr>
+                        <td><?= $orderItem->item->name ?></td>
+                        <td><?= $orderItem->quantity ?></td>
+                    </tr>
+                <?php
+                    endforeach;
+                ?>
+            </tbody>
+        </table>
+    </div>
     
 
 </div>

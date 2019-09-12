@@ -55,7 +55,7 @@ $this->title = 'OMS';
 
     <div class="images" > 
   <?php
-  $images=['<img src="https://images.unsplash.com/photo-1560691023-ca1f295a5173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>','<img src="https://images.unsplash.com/photo-1566217688581-b2191944c2f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"/>','<img src="https://unsplash.com/photos/wPyP9qIR0-A"/>'];
+  $images=['<img src="https://www.euractiv.com/wp-content/uploads/sites/2/2013/06/Food%20tax.jpeg" style="width: ; height: 90"/>'];
   echo yii\bootstrap\Carousel::widget(['items'=>$images]);
   
   ?>

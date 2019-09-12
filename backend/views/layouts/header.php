@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 ?>
 <header class="main-header">
         <!-- Logo -->
@@ -44,7 +45,7 @@ use yii\helpers\Html;
                   <li class="user-footer">
                     
                     <div class="pull-right">
-                      <a href="" class="btn btn-default btn-flat">Sign out</a>
+                      <?= Html::a('Logout', ['site/logout'], ['data' => ['method' => 'post']])?>
                     </div>
                   </li>
                 </ul>
