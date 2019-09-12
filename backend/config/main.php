@@ -8,9 +8,13 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'name' => 'OMS',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'aliases' => [
+		'@adminlte/widgets'=>'@vendor/adminlte/yii2-widgets'
+    	],
     'modules' => [],
     'components' => [
         'request' => [

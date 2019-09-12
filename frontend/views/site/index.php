@@ -1,12 +1,13 @@
 <?php
 
+use yii\bootstrap\Carousel;
+
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'OMS';
 ?>
-<div class="site-index">
 
-    <div class="jumbotron">
+    <!-- <div class="jumbotron">
         <h1>Congratulations!</h1>
 
         <p class="lead">You have successfully created your Yii-powered application.</p>
@@ -49,5 +50,13 @@ $this->title = 'My Yii Application';
             </div>
         </div>
 
-    </div>
-</div>
+    </div> -->
+    
+
+    <div class="images" > 
+  <?php
+  $images=['<img src="https://images.unsplash.com/photo-1560691023-ca1f295a5173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>','<img src="https://images.unsplash.com/photo-1566217688581-b2191944c2f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"/>','<img src="https://unsplash.com/photos/wPyP9qIR0-A"/>'];
+  echo yii\bootstrap\Carousel::widget(['items'=>$images]);
+  
+  ?>
+  </div>

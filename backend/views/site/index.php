@@ -3,7 +3,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Customer Order Management';
 ?>
 <div class="site-index">
 
@@ -16,7 +16,7 @@ $this->title = 'My Yii Application';
 
     <div class="body-content">
 
-        <div class="row">
+        <!-- <div class="row">
             
             <div class="col-lg-4">
             <div class="card">
@@ -50,6 +50,6 @@ $this->title = 'My Yii Application';
                 <p><a class="btn btn-default" href="<?= Url::to(['user/index']) ?>">View Users &raquo;</a></p>
             </div>
         </div>
-
-    </div>
+-->
+    </div> 
 </div>
