@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+$formatter = \Yii::$app->formatter;
 ?>
 <header class="main-header">
         <!-- Logo -->
@@ -36,7 +37,7 @@ use yii\helpers\Url;
                     <?= Html::img('@web/img/user2-160x160.jpg', ['class' => 'img-circle', 'alt'=>'User Image']) ?>
                     <p>
                       <?= Yii::$app->user->identity->username;?> - Admin
-                      <small>Member since Nov. 2012</small>
+                      <small>Member since <?= $formatter->asDate(Yii::$app->user->identity->created_at);?></small>
                     </p>
                   </li>
                   <!-- Menu Body -->
@@ -45,7 +46,7 @@ use yii\helpers\Url;
                   <li class="user-footer">
                     
                     <div class="pull-right">
-                      <?= Html::a('Logout', ['site/logout'], ['data' => ['method' => 'post']])?>
+                      <?= Html::a('Logout', ['site/logout'], ['data' => ['method' => 'post'], 'class' => 'btn btn-default btn-flat'])?>
                     </div>
                   </li>
                 </ul>

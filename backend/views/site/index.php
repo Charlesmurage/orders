@@ -1,17 +1,61 @@
 <?php
 use yii\helpers\Url;
+use dosamigos\chartjs\ChartJs;
+use miloschuman\highcharts\Highcharts;
+
+use backend\models\Items;
+use backend\models\OrderItem;
 
 /* @var $this yii\web\View */
 
 $this->title = 'Dashboard';
+
+/*
+ [
+         ['type' => 'column','name' => 'Apple', 'data' => [1]],
+         ['type' => 'column', 'name' => 'Orange', 'data' => [5]]
+]
+*/
+$data = [];
+$data2 = [];
+$items = Items::find()->all();
+$days = 7;
+$today = Date('Y-m-d'); // 2019-09-10
+$range_days = range(0,7, 1);
+
+$dates = [];
+for ($i = 0; $i < $days; $i++) {
+    $dates[] = date('Y-m-d', strtotime("-$i days"));
+}
+
+foreach($items as $item){
+    $sales = OrderItem::find()->where(['item_id' => $item->id])->count();
+    $data[] = [
+        'type' => 'column',
+        'name' => $item->name,
+        'data' => [
+            (int) $sales
+        ],
+    ];
+    // historical sales
+    $historical_sales = [];
+    foreach($dates as $date) {
+        // 2019-09-13
+        $sale = OrderItem::find()->where(['item_id' => $item->id])
+        ->andWhere('DATE(created_at) =' .new \yii\db\Expression('DATE("'. $date.'")'))
+        ->count();
+        $historical_sales[] = (int) $sale;
+    };
+    $data2[] = [
+        'type' => 'spline',
+        'name' => $item->name,
+        'data' => $historical_sales,
+    ];
+
+};
+
 ?>
 <div class="site-index">
-
-    <div class="jumbotron">
-
-        <!-- <p><a class="btn btn-lg btn-success" href="<?= Url::to(['user/index']) ?>">Get started with Yii</a></p> -->
-    </div>
-
     <div class="body-content">
 
         <!-- <div class="row">
@@ -49,5 +93,36 @@ $this->title = 'Dashboard';
             </div>
         </div>
 -->
+
+<?php
+echo Highcharts::widget([
+   'options' => [
+      'title' => ['text' => 'Total Orders'],
+      'xAxis' => [
+         'categories' => ['Items']
+      ],
+      'yAxis' => [
+         'title' => ['text' => 'Sales']
+      ],
+      'series' => $data,
+   ]
+]);
+?>
+<?='<br>'?>
+<?php
+echo Highcharts::widget([
+   'options' => [
+      'title' => ['text' => 'Weekly Insights'],
+      'xAxis' => [
+         'categories' => $dates,
+      ],
+      'yAxis' => [
+         'title' => ['text' => 'Sales']
+      ],
+      'series' =>  $data2,
+   ]
+]);
+?>
+
     </div> 
 </div>
