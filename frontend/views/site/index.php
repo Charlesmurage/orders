@@ -1,62 +1,22 @@
 <?php
 
 use yii\bootstrap\Carousel;
-
+use yii\Html\helpers;
 /* @var $this yii\web\View */
 
 $this->title = 'OMS';
+$this->registerCss("body { background: linear-gradient(to bottom right, #0066cc 0%, #00ffff 100%);
+}");
 ?>
 
-    <!-- <div class="jumbotron">
-        <h1>Congratulations!</h1>
+    <div class="jumbotron">
+        <h1 class="hero-text">Indulge Yourself!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead hero-text-2 animated slideInLeft" style="font-size: 50px;">MEXICAN CUISINE</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p><a class="btn btn-lg btn-success" href="http://localhost/learn/frontend/web/">Order</a></p>
     </div>
 
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
-    </div> -->
     
 
-    <div class="images" > 
-  <?php
-  $images=['<img src="https://www.euractiv.com/wp-content/uploads/sites/2/2013/06/Food%20tax.jpeg" style="width: ; height: 90"/>'];
-  echo yii\bootstrap\Carousel::widget(['items'=>$images]);
-  
-  ?>
-  </div>
+    

@@ -3,13 +3,11 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Customer Order Management';
+$this->title = 'Dashboard';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-
-     <h1>welcome <b>Admin.</b></h1>
 
         <!-- <p><a class="btn btn-lg btn-success" href="<?= Url::to(['user/index']) ?>">Get started with Yii</a></p> -->
     </div>
