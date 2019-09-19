@@ -104,7 +104,7 @@ class OrderController extends Controller
 
         $products = ArrayHelper::map(Items::find()->all(),'id', 'name');
 
-        return $this->render('create', [
+        return $this->renderAjax('create', [
             'model' => $model,
             'products' => $products,
         ]);

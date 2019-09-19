@@ -9,6 +9,8 @@ use Yii;
  *
  * @property int $id
  * @property string $name
+ * @property string $created_at
+ * @property string $updated_on
  */
 class Items extends \yii\db\ActiveRecord
 {
@@ -26,10 +28,9 @@ class Items extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name'], 'required'],
-            [['id'], 'integer'],
-            [['name'], 'string', 'max' => 100],
-            [['name'], 'unique'],
+            [['name'], 'required'],
+            [['created_at', 'updated_on'], 'safe'],
+            [['name'], 'string', 'max' => 255],
         ];
     }
 
@@ -41,6 +42,17 @@ class Items extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'created_at' => 'Created At',
+            'updated_on' => 'Updated On',
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return ItemsQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new ItemsQuery(get_called_class());
     }
 }

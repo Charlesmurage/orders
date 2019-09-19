@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\OrderSearch */
@@ -15,8 +17,20 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::button('Create Order', ['value'=>Url::to('index.php?r=order/create'),'class' => 'btn btn-success', 'id' =>'modalButton']) ?>
     </p>
+
+    <?php
+           Modal::begin([
+    // 'header' => '<h2>Make An Order</h2>',
+    'id' => 'modal',
+    // 'toggleButton' => ['label' => 'click me'],
+    ]);
+
+    echo "<div id='modalContent'></div>";
+
+    Modal::end();
+            ?>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

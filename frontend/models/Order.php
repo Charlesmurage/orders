@@ -44,7 +44,7 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
+            'username' => 'Customer',
             'item' => 'Item',
             'quantity' => 'Quantity',
         ];

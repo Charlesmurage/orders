@@ -18,7 +18,7 @@ class ItemsSearch extends Items
     {
         return [
             [['id'], 'integer'],
-            [['name'], 'safe'],
+            [['name', 'created_at', 'updated_on'], 'safe'],
         ];
     }
 
@@ -59,6 +59,8 @@ class ItemsSearch extends Items
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'created_at' => $this->created_at,
+            'updated_on' => $this->updated_on,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name]);
