@@ -20,11 +20,15 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "2amigos/yii2-chartjs-widget": "~2.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "miloschuman/yii2-highcharts-widget": "*"
 =======
         "miloschuman/yii2-highcharts-widget": "*",
         "mpdf/mpdf":"*"
 >>>>>>> 765d19b39c09f592c2bdf7561dbb5aee25f22366
+=======
+        "miloschuman/yii2-highcharts-widget": "*"
+>>>>>>> ccb3dfa9c4d76f54b877fcd233392fe094f1edc1
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
