@@ -14,6 +14,7 @@ use Yii;
  */
 class Items extends \yii\db\ActiveRecord
 {
+    public $uploadedImage;
     /**
      * {@inheritdoc}
      */
@@ -32,6 +33,8 @@ class Items extends \yii\db\ActiveRecord
             [['id'], 'integer'],
             [['name'], 'string', 'max' => 100],
             [['name'], 'unique'],
+            [['description'], 'text'],
+            [['uploadedImage'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
         ];
     }
 
@@ -43,6 +46,9 @@ class Items extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'description' =>'Description',
+            'imageFile' => 'Picture'
+            
         ];
     }
 

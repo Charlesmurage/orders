@@ -1,22 +1,39 @@
 <?php
 
-use yii\bootstrap\Carousel;
-use yii\Html\helpers;
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
 /* @var $this yii\web\View */
+/* @var $model backend\models\Items */
 
-$this->title = 'OMS';
-// $this->registerCss("body { background: linear-gradient(to bottom right, #0066cc 0%, #00ffff 100%);
-//$this ->registerCss("body{ background-image: url(../img/food.jpg)}");
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Items', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
 ?>
+<div class="items-view">
 
-<div class="jumbotron">
-        <h1 class="hero-text">Indulge Yourself!</h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-        <p class="lead hero-text-2 animated slideInLeft" style="font-size: 50px;">MEXICAN CUISINE</p>
+    <p>
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
 
-        <p><a class="btn btn-lg btn-success" href="http://localhost/orders2/frontend/web/">Order</a></p>
-    </div>
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'name',
+            'created_at',
+            'updated_on',
+        ],
+    ]) ?>
 
-    
-
-    
+</div>

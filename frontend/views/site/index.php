@@ -18,7 +18,8 @@ $this->title = 'OMS';
 
         <p class="lead hero-text-2 animated slideInLeft" style="font-size: 50px;">MEXICAN CUISINE</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://localhost/orders/index/" style="font-size: x-large; font-weight: 50px;">Make an Order today!</a></p>
+        <p><a class="btn btn-lg btn-success" href="http://localhost/order3/orders/frontend/web/index.php?r=items" style="font-size: x-large; font-weight: 50px;">View our menu!</a></p>
+
     </div>
 
     

@@ -8,7 +8,8 @@ use backend\models\ItemsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use app\models\UploadForm;
+use yii\web\UploadedFile;
 /**
  * ItemsController implements the CRUD actions for Items model.
  */
@@ -52,8 +53,12 @@ class ItemsController extends Controller
      */
     public function actionView($id)
     {
+        $searchModel = new ItemsSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -66,8 +71,19 @@ class ItemsController extends Controller
     {
         $model = new Items();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->name]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->uploadedImage = UploadedFile::getInstance($model, 'imageFile');
+
+            if ($model->upload()) {
+                // file is uploaded successfully
+                $model->uploadedImage = null;
+                $model->save();
+                return $this->redirect(['view', 'id' => $model->name]);
+            }
+            else {
+                print_r($model->uploadedImage->error);
+            }
+            
         }
 
         return $this->render('create', [
@@ -123,5 +139,23 @@ class ItemsController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+        public function actionUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+
+            print_r($model);
+            exit;
+            if ($model->upload()) {
+                // file is uploaded successfully
+                return;
+            }
+        }
+
+        return $this->render('upload', ['model' => $model]);
     }
 }

@@ -155,6 +155,13 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
+    // function for product page
+
+    public function actionIndex2()
+    {
+        return $this->render('index2');
+    }
+    //end of product functions
     /**
      * Signs user up.
      *

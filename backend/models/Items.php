@@ -11,6 +11,7 @@ use Yii;
  */
 class Items extends \yii\db\ActiveRecord
 {
+    public $uploadedImage;
     /**
      * {@inheritdoc}
      */
@@ -26,7 +27,9 @@ class Items extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['created_at', 'updated_on'], 'safe'],
-            [['name'], 'string', 'max' => 255],
+            [['name', 'imageFile'], 'string', 'max' => 255],
+            [['description'], 'string'],
+            [['uploadedImage'], 'file', 'extensions' => 'jpg, png', 'mimeTypes' => 'image/jpeg, image/png',],
         ];
     }
     /**
@@ -39,6 +42,8 @@ class Items extends \yii\db\ActiveRecord
             'name' => 'Name',
             'created_at' => 'Created At',
             'updated_on' => 'Updated On',
+            'description' => 'Description',
+            'imageFile' => 'Picture',
         ];
     }
     /**
@@ -48,5 +53,19 @@ class Items extends \yii\db\ActiveRecord
     public static function find()
     {
         return new ItemsQuery(get_called_class());
+    }
+
+    public function upload()
+    {
+        $security = new \yii\base\Security();
+        $name = $security->generateRandomString(16);
+        $path = 'uploads/' . $name . '.' . $this->uploadedImage->extension;
+
+        if ($this->uploadedImage->saveAs($path)) {
+            $this->imageFile = $path;
+            return true;
+        } else {
+            return false;
+        }
     }
 }
