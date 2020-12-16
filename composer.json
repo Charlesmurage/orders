@@ -12,23 +12,18 @@
         "irc": "irc://irc.freenode.net/yii",
         "source": "https://github.com/yiisoft/yii2"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.6.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "2amigos/yii2-chartjs-widget": "~2.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-        "miloschuman/yii2-highcharts-widget": "*"
-=======
         "miloschuman/yii2-highcharts-widget": "*",
-        "mpdf/mpdf":"*"
->>>>>>> 765d19b39c09f592c2bdf7561dbb5aee25f22366
-=======
-        "miloschuman/yii2-highcharts-widget": "*"
->>>>>>> ccb3dfa9c4d76f54b877fcd233392fe094f1edc1
+        "miloschuman/yii2-highcharts-widget": "*",
+        "mpdf/mpdf":"*",
+        "miloschuman/yii2-highcharts-widget": "*",
+        "johnsnook/yii2-bootstrap4-card": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

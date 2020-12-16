@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\app\web;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Items */
@@ -31,9 +33,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'created_at',
-            'updated_on',
+            //'imageFile',
+            //'created_at',
+            //'updated_on',
         ],
     ]) ?>
+     <img src="<?php echo Yii::getAlias('@web').'/'.$model->imageFile; ?>">
 
 </div>

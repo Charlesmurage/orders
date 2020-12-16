@@ -9,10 +9,11 @@ use yii\widgets\ActiveForm;
 
 <div class="items-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
+    <?= $form->field($model, 'description')->textInput() ?>
+    <?= $form->field($model, 'imageFile')->fileInput() ?>
     <!-- <?= $form->field($model, 'created_at')->textInput() ?>
     <?= $form->field($model, 'updated_on')->textInput() ?> -->
 
@@ -21,5 +22,4 @@ use yii\widgets\ActiveForm;
     </div>
 
     <?php ActiveForm::end(); ?>
-
 </div>

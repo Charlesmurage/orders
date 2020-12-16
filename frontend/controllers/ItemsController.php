@@ -8,6 +8,8 @@ use frontend\models\ItemsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\widgets\LinkPager;
+use yii\data\Pagination;
 
 /**
  * ItemsController implements the CRUD actions for Items model.
@@ -35,12 +37,30 @@ class ItemsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ItemsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // $searchModel = new ItemsSearch();
+        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        // return $this->render('index', [
+        //     'searchModel' => $searchModel,
+        //     'dataProvider' => $dataProvider,
+        // ]);
+
+         $query = Items::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 9,
+            'totalCount' => $query->count(),
+        ]);
+
+        $items = $query->orderBy('name')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            //'model' => $this->findModel('name'),
+            'items' => $items,
+            'pagination' => $pagination,
         ]);
     }
 
